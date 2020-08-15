@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Bleach Calculator</title>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css"
+      integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb"
+      crossorigin="anonymous"
+    />
+    <link rel="icon" href="./img/bleachapp_icon.ico" />
+    <style>
+      #loading,
+      #low-bleach,
+      #high-bleach {
+        display: none;
+      }
+
+      .card {
+        max-width: 370px;
+      }
+
+      #notice {
+        text-align: left;
+        font-size: 14px;
+        width: 90%;
+        margin: auto;
+        line-height: 1.1;
+        color: #666;
+      }
+
+      #author {
+        color: #666;
+      }
+    </style>
+  </head>
+  <body class="bg-dark">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-5 mx-auto">
+          <div class="card card-body text-center mt-4">
+            <h2 class="heading display-5 pb-3">
+              Potable Water<br />Bleach Calculator
+            </h2>
+            <!-- INPUTS -->
+            <form id="bleach-form">
+              <div class="form-group">
+                <div class="input-group">
+                  <input
+                    type="number"
+                    class="form-control"
+                    id="water-total"
+                    placeholder="Total Water Capacity"
+                    min="0"
+                  />
+                  <span class="input-group-addon">Gallons (total)</span>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="input-group">
+                  <input
+                    type="number"
+                    class="form-control"
+                    id="water-makeup"
+                    placeholder="Water Make-up"
+                    min="0"
+                  />
+                  <span class="input-group-addon">Gallons (make-up)</span>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="input-group">
+                  <input
+                    type="number"
+                    class="form-control"
+                    id="ppm-current"
+                    placeholder="Current Bleach Content"
+                    step="0.1"
+                    min="0"
+                  />
+                  <span class="input-group-addon">ppm (current)</span>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="input-group">
+                  <input
+                    type="number"
+                    class="form-control"
+                    id="ppm-desired"
+                    placeholder="Desired Bleach Content"
+                    step="0.1"
+                    min="0"
+                  />
+                  <span class="input-group-addon">ppm (desired)</span>
+                </div>
+                <div id="notice">
+                  <small
+                    >Note: Recommended chlorine content is 0.2-2.0 ppm.
+                    <br />Final free available chlorine may be less due to
+                    chlorine combining with/breaking down contaminants as well
+                    as the age of the chlorine added. Chlorine bleach may lose
+                    between 20-50% of its effectiveness within a year.</small
+                  >
+                </div>
+              </div>
+              <div class="form-group pt-1">
+                <input
+                  type="submit"
+                  value="Calculate"
+                  class="btn btn-dark btn-block"
+                />
+              </div>
+            </form>
+            <!-- LOADER -->
+            <div id="loading">
+              <img src="img/loading.gif" alt="" width="170px" height="auto" />
+            </div>
+            <!-- RESULTS -->
+            <div class="form-group" id="low-bleach">
+              <h6>Please add a total of...</h6>
+              <div class="input-group">
+                <input
+                  type="number"
+                  class="form-control"
+                  id="bleach-needed"
+                  disabled
+                />
+                <span class="input-group-addon">ounces of bleach</span>
+              </div>
+              <h6>or</h6>
+              <div class="input-group">
+                <input
+                  type="number"
+                  class="form-control"
+                  id="bleach-needed-in-ml"
+                  disabled
+                />
+                <span class="input-group-addon">milliliters of bleach</span>
+              </div>
+              <small>Assuming concentrated bleach (8.25% NaClO)</small>
+            </div>
+            <div id="high-bleach">
+              <h5>No bleach necessary,<br />dillution recommended</h5>
+            </div>
+          </div>
+          <small id="author">Created By: Ryan Marchal</small>
+        </div>
+      </div>
+    </div>
+
+    <!-- jQuery, Popper.js, Bootstrap JS -->
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"
+      integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"
+      integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
+      crossorigin="anonymous"
+    ></script>
+    <script src="app.js"></script>
+  </body>
+</html>
